@@ -5,35 +5,38 @@
  */
 package Domain;
 
-import java.sql.Date;
+import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author Moise Niyonkuru
  */
 @Entity
-public class Driver {
+public class Car {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nom;
-    private double quantity;
     private String CarType;
-    private double product;
     private Date date;
     private String telephone;
     private String plaque;
+    @OneToMany(mappedBy = "car")
+    private List<Transactions> transactions;
 
-    public Driver() {
+    public Car() {
     }
 
-    public Driver(int id, String nom, double quantity, String CarType, double product, Date date, String telephone, String plaque) {
+    public Car(int id, String nom, String CarType, Date date, String telephone, String plaque) {
         this.id = id;
         this.nom = nom;
-        this.quantity = quantity;
         this.CarType = CarType;
-        this.product = product;
         this.date = date;
         this.telephone = telephone;
         this.plaque = plaque;
@@ -56,28 +59,12 @@ public class Driver {
         this.nom = nom;
     }
 
-    public double getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(double quantity) {
-        this.quantity = quantity;
-    }
-
     public String getCarType() {
         return CarType;
     }
 
     public void setCarType(String CarType) {
         this.CarType = CarType;
-    }
-
-    public double getProduct() {
-        return product;
-    }
-
-    public void setProduct(double product) {
-        this.product = product;
     }
 
     public Date getDate() {
@@ -103,5 +90,7 @@ public class Driver {
     public void setPlaque(String plaque) {
         this.plaque = plaque;
     }
+    
+    
     
 }

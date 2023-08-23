@@ -66,7 +66,32 @@ public class GeneralDao<T> {
     }
 
     public List<T> findAll() {
-        Criteria criteria = HibernateUtil.getSessionFactory().openSession().createCriteria(entityClass);
-        return criteria.list();
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            Criteria criteria = session.createCriteria(entityClass);
+            return criteria.list();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+        return null;
     }
+//    public List<Object[]> getTransactionCountPerDriver() {
+//        Session session = HibernateUtil.getSessionFactory().openSession();
+//        try {
+//            String sqlQuery = "SELECT d.driver_id, d.driver_name, COUNT(ft.transaction_id) " +
+//                              "FROM drivers d " +
+//                              "JOIN fuel_transactions ft ON d.driver_id = ft.driver_id " +
+//                              "GROUP BY d.driver_id, d.driver_name";
+//
+//            Query<Object[]> query = session.createNativeQuery(sqlQuery);
+//            List<Object[]> results = query.getResultList();
+//
+//            return results;
+//        } finally {
+//            session.close();
+//        }
+//    }
+//    
 }

@@ -5,12 +5,14 @@
         <group>
             <file>file:/C:/Users/Moise%20Niyonkuru/Documents/NetBeansProjects/PetroleumStation/src/Domain/Transactions.java</file>
             <file>file:/C:/Users/Moise%20Niyonkuru/Documents/NetBeansProjects/PetroleumStation/src/View/Cheuffeur.java</file>
+            <file>file:/C:/Users/Moise%20Niyonkuru/Documents/NetBeansProjects/PetroleumStation/src/Util/ExportPdf.java</file>
             <file>file:/C:/Users/Moise%20Niyonkuru/Documents/NetBeansProjects/PetroleumStation/src/Util/HibernateUtil.java</file>
+            <file>file:/C:/Users/Moise%20Niyonkuru/Documents/NetBeansProjects/PetroleumStation/src/Domain/Car.java</file>
             <file>file:/C:/Users/Moise%20Niyonkuru/Documents/NetBeansProjects/PetroleumStation/src/Dao/GeneralDao.java</file>
             <file>file:/C:/Users/Moise%20Niyonkuru/Documents/NetBeansProjects/PetroleumStation/src/View/Forms.java</file>
-            <file>file:/C:/Users/Moise%20Niyonkuru/Documents/NetBeansProjects/PetroleumStation/src/Domain/Driver.java</file>
             <file>file:/C:/Users/Moise%20Niyonkuru/Documents/NetBeansProjects/PetroleumStation/src/petroleumstation/PetroleumStation.java</file>
             <file>file:/C:/Users/Moise%20Niyonkuru/Documents/NetBeansProjects/PetroleumStation/src/Test/TestClass.java</file>
+            <file>file:/C:/Users/Moise%20Niyonkuru/Documents/NetBeansProjects/PetroleumStation/src/hibernate.cfg.xml</file>
         </group>
     </open-files>
 </project-private>

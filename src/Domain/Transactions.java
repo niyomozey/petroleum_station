@@ -5,9 +5,13 @@
  */
 package Domain;
 
-import java.sql.Date;
+import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -16,24 +20,25 @@ import javax.persistence.Id;
 @Entity
 public class Transactions {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String nom;
     private double quantity;
-    private double product;
+    private String product;
     private Date date;
+    @ManyToOne(cascade = {CascadeType.ALL})
+    private Car car;
 
     public Transactions() {
     }
 
-    public Transactions(int id, String nom, double quantity, double product, Date date) {
+    public Transactions(int id, double quantity, String product, Date date, Car car) {
         this.id = id;
-        this.nom = nom;
         this.quantity = quantity;
         this.product = product;
         this.date = date;
+        this.car = car;
     }
     
-
     public int getId() {
         return id;
     }
@@ -41,15 +46,6 @@ public class Transactions {
     public void setId(int id) {
         this.id = id;
     }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
     public double getQuantity() {
         return quantity;
     }
@@ -58,11 +54,11 @@ public class Transactions {
         this.quantity = quantity;
     }
 
-    public double getProduct() {
+    public String getProduct() {
         return product;
     }
 
-    public void setProduct(double product) {
+    public void setProduct(String product) {
         this.product = product;
     }
 
@@ -73,5 +69,14 @@ public class Transactions {
     public void setDate(Date date) {
         this.date = date;
     }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
+    }
+    
     
 }
