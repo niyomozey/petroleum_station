@@ -12,6 +12,8 @@ import Util.ExportPdf;
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.Icon;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -61,11 +63,13 @@ public class Forms extends javax.swing.JFrame {
             List<Transactions> sortedTransactions = new ArrayList<>();
             for (int i = 0; i < transactions.size(); i++) {
                 double litresCounter = 0;
-                for (int j = i; j < transactions.size(); j++) {
+                for (int j = 0; j < transactions.size(); j++) {
                     if (transactions.get(i).getCar().getNom().equalsIgnoreCase(transactions.get(j).getCar().getNom())) {
-                        litresCounter += transactions.get(i).getQuantity();
+                        System.out.println("Name: "+ transactions.get(i).getCar().getNom() + " qty" + String.valueOf(transactions.get(i).getQuantity()));
+                        litresCounter += transactions.get(j).getQuantity();
                     }
                 }
+                System.out.println("---> decision:"+ (litresCounter >= ltrs));
                 if (litresCounter >= ltrs) {
                     sortedTransactions.add(transactions.get(i));
                 }
@@ -175,24 +179,6 @@ public class Forms extends javax.swing.JFrame {
         jLabel31 = new javax.swing.JLabel();
         pump_litres = new javax.swing.JTextField();
         shakisha_btn = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
-        trans_nom1 = new javax.swing.JTextField();
-        trans_type1 = new javax.swing.JTextField();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        trans_plaque1 = new javax.swing.JTextField();
-        jLabel27 = new javax.swing.JLabel();
-        jPanel10 = new javax.swing.JPanel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        trans_product1 = new javax.swing.JTextField();
-        jLabel30 = new javax.swing.JLabel();
-        trans_qty1 = new javax.swing.JTextField();
-        trans_date1 = new javax.swing.JTextField();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        transactionTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -796,190 +782,6 @@ public class Forms extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Kureba Raport", jPanel2);
 
-        jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel22.setText("Nom du chauffeur");
-
-        trans_nom1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                trans_nom1ActionPerformed(evt);
-            }
-        });
-
-        trans_type1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                trans_type1ActionPerformed(evt);
-            }
-        });
-
-        jLabel23.setText("Type de vehicle");
-
-        jLabel26.setText("Plaque no");
-
-        trans_plaque1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                trans_plaque1ActionPerformed(evt);
-            }
-        });
-
-        jLabel27.setText("Imyirondoro");
-
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("Fiche de consommation du carburant"));
-
-        jLabel28.setText("DATE");
-
-        jLabel29.setText("PRODUCT");
-
-        trans_product1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                trans_product1ActionPerformed(evt);
-            }
-        });
-
-        jLabel30.setText("QUANTITE");
-
-        trans_qty1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                trans_qty1ActionPerformed(evt);
-            }
-        });
-
-        trans_date1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                trans_date1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel29)
-                    .addComponent(jLabel30)
-                    .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(trans_product1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(trans_qty1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(trans_date1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20))
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel28)
-                    .addComponent(trans_date1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(trans_product1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel29))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel30)
-                    .addComponent(trans_qty1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(185, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(jLabel26)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(trans_plaque1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(jLabel23)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(trans_type1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(jLabel22)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                        .addComponent(trans_nom1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(42, 42, 42))
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(153, 153, 153)
-                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel22)
-                    .addComponent(trans_nom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(trans_type1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel23))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel26)
-                    .addComponent(trans_plaque1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        transactionTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Date", "Nom", "Quantite", "Plaque no"
-            }
-        ));
-        transactionTable1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                transactionTable1MouseClicked(evt);
-            }
-        });
-        jScrollPane3.setViewportView(transactionTable1);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1059, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(47, 47, 47)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(38, 38, 38)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(47, Short.MAX_VALUE)))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 679, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(31, 31, 31)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(242, 242, 242)))
-                    .addGap(31, 31, 31)))
-        );
-
-        jTabbedPane1.addTab("Abujuje litiro", jPanel3);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -994,142 +796,32 @@ public class Forms extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void driverNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driverNameActionPerformed
+    private void shakisha_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shakisha_btnActionPerformed
+        double litres = Double.valueOf(pump_litres.getText());
+        sortByLitres(litres);
+    }//GEN-LAST:event_shakisha_btnActionPerformed
+
+    private void pump_litresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pump_litresActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_driverNameActionPerformed
+    }//GEN-LAST:event_pump_litresActionPerformed
 
-    private void form_vehicleTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_form_vehicleTypeActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_form_vehicleTypeActionPerformed
-
-    private void form_plaqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_form_plaqueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_form_plaqueActionPerformed
-
-    private void plaqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plaqueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_plaqueActionPerformed
-
-    private void form_productActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_form_productActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_form_productActionPerformed
-
-    private void form_qtyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_form_qtyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_form_qtyActionPerformed
-
-    private void create_transactionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_transactionsActionPerformed
-        try {
-            Transactions transaction = new Transactions();
-            Date saleDate = form_date.getDate();
-            double litres = Double.parseDouble(form_qty.getText());
-            transaction.setDate(saleDate);
-            transaction.setQuantity(litres);
-            transaction.setProduct(form_product.getText());
-            transaction.setCar(car);
-            GeneralDao transDao = new GeneralDao<>(Transactions.class);
-            boolean successCreated = transDao.create(transaction);
-            transaction_msg.setText(successCreated ? "Ifishe yujujwe neza" : "Kuzuza iyifishe ntibikunze");
-            cars = dao.findAll();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-
-    }//GEN-LAST:event_create_transactionsActionPerformed
-
-    private void form_driverNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_form_driverNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_form_driverNameActionPerformed
-
-    private void nimeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nimeroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nimeroActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO create PRoduct
-        car.setCarType(form_vehicleType.getText());
-        car.setNom(form_driverName.getText());
-        car.setPlaque(form_plaque.getText());
-        car.setTelephone(form_telphoneNumber.getText());
-        car.setDate(new Date());
-        dao = new GeneralDao<>(Car.class);
-        boolean successCreated = dao.create(car);
-        msg.setText(successCreated ? "Imodoka yandistwe neza" : "Kwandikisha imodoka ntikunze");
-        cars = dao.findAll();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void driverNameInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_driverNameInputMethodTextChanged
-        System.out.println("Input text changed to: " + evt.getText());
-    }//GEN-LAST:event_driverNameInputMethodTextChanged
-
-    private void driverNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_driverNameKeyTyped
-        // TODO add your handling code here
-        String driver_name = driverName.getText();
-        searchCarBy("name", driver_name + evt.getKeyChar());
-    }//GEN-LAST:event_driverNameKeyTyped
-
-    private void carTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carTableMouseClicked
-
-        int index = carTable.getSelectedRow();
-        form_driverName.setText((String) carTable.getValueAt(index, 0));
-        form_telphoneNumber.setText((String) carTable.getValueAt(index, 1));
-        form_plaque.setText((String) carTable.getValueAt(index, 2));
-        form_vehicleType.setText((String) carTable.getValueAt(index, 3));
-        for (Car selectedCar : cars) {
-            if (selectedCar.getNom().equalsIgnoreCase((String) carTable.getValueAt(index, 0))) {
-                car = selectedCar;
+        GeneralDao<Transactions> transaction = new GeneralDao<>(Transactions.class);
+        List<Transactions> transList = transaction.findAll();
+        List<Transactions> transReports = new ArrayList<>();
+        for (Transactions t : transList) {
+            if (t.getCar().getNom().contains(trans_nom.getText())) {
+                transReports.add(t);
             }
         }
-    }//GEN-LAST:event_carTableMouseClicked
-
-    private void form_telphoneNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_form_telphoneNumberActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_form_telphoneNumberActionPerformed
-
-    private void nimeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nimeroKeyTyped
-        // TODO add your handling code here:
-        String number = nimero.getText();
-        searchCarBy("number", number + evt.getKeyChar());
-    }//GEN-LAST:event_nimeroKeyTyped
-
-    private void plaqueKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_plaqueKeyTyped
-        // TODO add your handling code here:
-        String plaqueNo = plaque.getText();
-        searchCarBy("plaque", plaqueNo + evt.getKeyChar());
-    }//GEN-LAST:event_plaqueKeyTyped
-
-    private void trans_nom1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trans_nom1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_trans_nom1ActionPerformed
-
-    private void trans_type1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trans_type1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_trans_type1ActionPerformed
-
-    private void trans_plaque1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trans_plaque1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_trans_plaque1ActionPerformed
-
-    private void trans_product1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trans_product1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_trans_product1ActionPerformed
-
-    private void trans_qty1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trans_qty1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_trans_qty1ActionPerformed
-
-    private void trans_date1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trans_date1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_trans_date1ActionPerformed
-
-    private void transactionTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transactionTable1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_transactionTable1MouseClicked
+        ExportPdf export = new ExportPdf();
+        export.generateRaport(transReports);
+        JOptionPane.showMessageDialog(this,
+                "Ifishe Yasohoste neza.",
+                "Ifishe ya "+ driverName,
+                JOptionPane.INFORMATION_MESSAGE, null);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void trans_dateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trans_dateActionPerformed
         // TODO add your handling code here:
@@ -1179,20 +871,113 @@ public class Forms extends javax.swing.JFrame {
         litre_count.setText(String.valueOf(litresCounter));
     }//GEN-LAST:event_transactionTableMouseClicked
 
-    private void pump_litresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pump_litresActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pump_litresActionPerformed
+    private void carTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carTableMouseClicked
 
-    private void shakisha_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shakisha_btnActionPerformed
-        double litres = Double.valueOf(pump_litres.getText());
-        sortByLitres(litres);
-    }//GEN-LAST:event_shakisha_btnActionPerformed
+        int index = carTable.getSelectedRow();
+        form_driverName.setText((String) carTable.getValueAt(index, 0));
+        form_telphoneNumber.setText((String) carTable.getValueAt(index, 1));
+        form_plaque.setText((String) carTable.getValueAt(index, 2));
+        form_vehicleType.setText((String) carTable.getValueAt(index, 3));
+        for (Car selectedCar : cars) {
+            if (selectedCar.getNom().equalsIgnoreCase((String) carTable.getValueAt(index, 0))) {
+                car = selectedCar;
+            }
+        }
+    }//GEN-LAST:event_carTableMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void driverNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_driverNameKeyTyped
+        // TODO add your handling code here
+        String driver_name = driverName.getText();
+        searchCarBy("name", driver_name + evt.getKeyChar());
+    }//GEN-LAST:event_driverNameKeyTyped
+
+    private void driverNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driverNameActionPerformed
         // TODO add your handling code here:
-        ExportPdf export = new ExportPdf();
-        export.generateRaport();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_driverNameActionPerformed
+
+    private void driverNameInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_driverNameInputMethodTextChanged
+        System.out.println("Input text changed to: " + evt.getText());
+    }//GEN-LAST:event_driverNameInputMethodTextChanged
+
+    private void nimeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nimeroKeyTyped
+        // TODO add your handling code here:
+        String number = nimero.getText();
+        searchCarBy("number", number + evt.getKeyChar());
+    }//GEN-LAST:event_nimeroKeyTyped
+
+    private void nimeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nimeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nimeroActionPerformed
+
+    private void plaqueKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_plaqueKeyTyped
+        // TODO add your handling code here:
+        String plaqueNo = plaque.getText();
+        searchCarBy("plaque", plaqueNo + evt.getKeyChar());
+    }//GEN-LAST:event_plaqueKeyTyped
+
+    private void plaqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plaqueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_plaqueActionPerformed
+
+    private void form_telphoneNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_form_telphoneNumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_form_telphoneNumberActionPerformed
+
+    private void form_driverNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_form_driverNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_form_driverNameActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO create PRoduct
+        car.setCarType(form_vehicleType.getText());
+        car.setNom(form_driverName.getText());
+        car.setPlaque(form_plaque.getText());
+        car.setTelephone(form_telphoneNumber.getText());
+        car.setDate(new Date());
+        dao = new GeneralDao<>(Car.class);
+        boolean successCreated = dao.create(car);
+        msg.setText(successCreated ? "Imodoka yandistwe neza" : "Kwandikisha imodoka ntikunze");
+        cars = dao.findAll();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void create_transactionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_transactionsActionPerformed
+        try {
+            Transactions transaction = new Transactions();
+            Date saleDate = form_date.getDate();
+            double litres = Double.parseDouble(form_qty.getText());
+            transaction.setDate(saleDate);
+            transaction.setQuantity(litres);
+            transaction.setProduct(form_product.getText());
+            transaction.setCar(car);
+            GeneralDao transDao = new GeneralDao<>(Transactions.class);
+            boolean successCreated = transDao.create(transaction);
+            transaction_msg.setText(successCreated ? "Ifishe yujujwe neza" : "Kuzuza iyifishe ntibikunze");
+            cars = dao.findAll();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+    }//GEN-LAST:event_create_transactionsActionPerformed
+
+    private void form_qtyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_form_qtyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_form_qtyActionPerformed
+
+    private void form_productActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_form_productActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_form_productActionPerformed
+
+    private void form_plaqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_form_plaqueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_form_plaqueActionPerformed
+
+    private void form_vehicleTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_form_vehicleTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_form_vehicleTypeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1259,16 +1044,9 @@ public class Forms extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1276,18 +1054,14 @@ public class Forms extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel litre_count;
     private javax.swing.JLabel msg;
@@ -1297,19 +1071,12 @@ public class Forms extends javax.swing.JFrame {
     private javax.swing.JLabel pump_times;
     private javax.swing.JButton shakisha_btn;
     private javax.swing.JTextField trans_date;
-    private javax.swing.JTextField trans_date1;
     private javax.swing.JTextField trans_nom;
-    private javax.swing.JTextField trans_nom1;
     private javax.swing.JTextField trans_plaque;
-    private javax.swing.JTextField trans_plaque1;
     private javax.swing.JTextField trans_product;
-    private javax.swing.JTextField trans_product1;
     private javax.swing.JTextField trans_qty;
-    private javax.swing.JTextField trans_qty1;
     private javax.swing.JTextField trans_type;
-    private javax.swing.JTextField trans_type1;
     private javax.swing.JTable transactionTable;
-    private javax.swing.JTable transactionTable1;
     private javax.swing.JLabel transaction_msg;
     // End of variables declaration//GEN-END:variables
 

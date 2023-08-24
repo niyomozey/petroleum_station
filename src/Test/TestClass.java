@@ -33,7 +33,7 @@ public class TestClass {
 //        System.out.println("Today:" + LocalDate.now());
 //        GeneralDao trans_dao = new GeneralDao<>(Car.class);
 //        trans_dao.create(trans);
-ExportPdf export = new ExportPdf();
-        export.generateRaport();
+//ExportPdf export = new ExportPdf();
+//        export.generateRaport();
     }
 }
